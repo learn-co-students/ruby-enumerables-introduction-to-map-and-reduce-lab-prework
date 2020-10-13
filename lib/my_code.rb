@@ -1,3 +1,5 @@
+require 'pry'
+
 def map_to_negativize(source_array)
   new_array = []
   i = 0 
@@ -38,24 +40,36 @@ def map_to_square(source_array)
   return new_array
 end
 
-def reduce_to_total(source_array, starting_point)
+def reduce_to_total(source_array, starting_point = 0)
   total = starting_point
   i = 0 
   while i < source_array.length
-    if !starting_point
-      total = source_array[i]
-    else
-      total = starting_point + source_array[i]
-    end
+    total = total + source_array[i]
     i += 1
   end
   return total
 end
 
 def reduce_to_all_true(source_array)
-  
+  all_values = true
+  i = 0 
+  while i < source_array.length
+    if source_array[i] == false 
+      all_values = false 
+    end
+    i += 1
+  end
+  return all_values
 end
 
 def reduce_to_any_true(source_array)
-  
+  any_values = false
+  i = 0 
+  while i < source_array.length
+    if source_array[i] == true 
+      any_values = true 
+    end
+    i += 1
+  end
+  return any_values
 end
